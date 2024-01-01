@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text;
 using Galahad.Lexer;
 
@@ -64,8 +65,21 @@ public class LexerTests
 
         var tokens = await lexerReader.ReadAllAsync().ToListAsync();
 
+#if DEBUG
+        if (Debugger.IsAttached)
+        {
+            foreach (var token in tokens)
+            {
+                Console.WriteLine(token);
+            }
+        }
+#endif
         Assert.AreEqual(16, tokens.Count(x => x.Type == LexerTokenType.NewLine));
         Assert.AreEqual(4, tokens.Count(x => x.Type == LexerTokenType.Comma));
         Assert.AreEqual(7, tokens.Count(x => x.Type == LexerTokenType.OpenBracket));
+        Assert.AreEqual(7, tokens.Count(x => x.Type == LexerTokenType.CloseBracket));
+        Assert.AreEqual(5, tokens.Count(x => x.Type == LexerTokenType.OpenAngleBracket));
+        Assert.AreEqual(3, tokens.Count(x => x.Value.Equals("StyleSelector")));
+        Assert.AreEqual(2, tokens.Count(x => x.Value.Equals("DynamicResource")));
     }
 }
