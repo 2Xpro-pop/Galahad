@@ -165,6 +165,7 @@ public sealed class LexerReader(Stream stream) : IDisposable
                     _tokens.Add(new(numberLine, index, buffer.Length, buffer.ToString(), LexerTokenType.Text));
 
                     buffer.Clear();
+                    buffer.Append(line[i]);
                 }
 
                 ReadAllWhiteSpaces(buffer, line, ref i);

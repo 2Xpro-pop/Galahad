@@ -11,19 +11,34 @@ public class LexerTests
     {
         var lexerReader = new LexerReader(new MemoryStream(Encoding.UTF8.GetBytes("a = 1")));
 
-        while (true)
-        {
+        var aToken = await lexerReader.ReadAsync();
+        Assert.IsNotNull(aToken);
+        Assert.AreEqual(LexerTokenType.Text, aToken.Type);
+        Assert.AreEqual("a", aToken.Value);
 
-            var token = await lexerReader.ReadAsync();
+        var firstWhiteSpaceToken = await lexerReader.ReadAsync();
+        Assert.IsNotNull(firstWhiteSpaceToken);
+        Assert.AreEqual(LexerTokenType.Whitespace, firstWhiteSpaceToken.Type);
+        Assert.AreEqual(" ", firstWhiteSpaceToken.Value);
 
-            if (token is null)
-            {
+        var assignmentToken = await lexerReader.ReadAsync();
+        Assert.IsNotNull(assignmentToken);
+        Assert.AreEqual(LexerTokenType.Assignment, assignmentToken.Type);
+        Assert.AreEqual("=", assignmentToken.Value);
 
-                break;
-            }
+        var secondWhiteSpaceToken = await lexerReader.ReadAsync();
+        Assert.IsNotNull(secondWhiteSpaceToken);
+        Assert.AreEqual(LexerTokenType.Whitespace, secondWhiteSpaceToken.Type);
+        Assert.AreEqual(" ", secondWhiteSpaceToken.Value);
 
-            Console.WriteLine(token);
-        }
+        var oneToken = await lexerReader.ReadAsync();
+        Assert.IsNotNull(oneToken);
+        Assert.AreEqual(LexerTokenType.Text, oneToken.Type);
+        Assert.AreEqual("1", oneToken.Value);
+
+        var newLineToken = await lexerReader.ReadAsync();
+        Assert.IsNotNull(newLineToken);
+        Assert.AreEqual(LexerTokenType.NewLine, newLineToken.Type);
     }
 
     [TestMethod]
