@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Galahad.Lexer;
-public abstract class LexerToken(int line, int column, int length, string value)
+public class LexerToken(int line, int column, int length, string value, LexerTokenType type)
 {
     public int Line
     {
@@ -25,9 +25,15 @@ public abstract class LexerToken(int line, int column, int length, string value)
         get;
     } = value;
 
+    public LexerTokenType Type
+    {
+        get;
+    } = type;
+
+
+
     public override string ToString()
     {
-
-        return $"{Line}:{Column} {Value}";
+        return $"LexerToken: {Type} {Value} {Line}:{Column} {Length}";
     }
 }
