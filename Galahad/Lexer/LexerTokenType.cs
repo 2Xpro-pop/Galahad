@@ -18,4 +18,6 @@ public enum LexerTokenType
     Text,
     NewLine,
     Whitespace,
+    Dot,
+    Comma,
 }

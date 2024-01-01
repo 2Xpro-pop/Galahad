@@ -64,7 +64,8 @@ public class LexerTests
 
         var tokens = await lexerReader.ReadAllAsync().ToListAsync();
 
-        Assert.AreEqual(216, tokens.Count);
         Assert.AreEqual(16, tokens.Count(x => x.Type == LexerTokenType.NewLine));
+        Assert.AreEqual(4, tokens.Count(x => x.Type == LexerTokenType.Comma));
+        Assert.AreEqual(7, tokens.Count(x => x.Type == LexerTokenType.OpenBracket));
     }
 }

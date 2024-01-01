@@ -154,6 +154,18 @@ public sealed class LexerReader(Stream stream) : IDisposable
                 _tokens.Add(new(numberLine, i + 1, 1, ")", LexerTokenType.CloseParenthesis));
                 continue;
             }
+            if (IsToken(buffer, ".", i))
+            {
+                buffer.Clear();
+                _tokens.Add(new(numberLine, i + 1, 1, ".", LexerTokenType.Dot));
+                continue;
+            }
+            if (IsToken(buffer, ",", i))
+            {
+                buffer.Clear();
+                _tokens.Add(new(numberLine, i + 1, 1, ",", LexerTokenType.Comma));
+                continue;
+            }
             if (line[i] is ' ' or '\t')
             {
                 if (buffer.Length > 1)
