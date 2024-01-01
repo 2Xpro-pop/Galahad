@@ -24,8 +24,8 @@ This how galahad looks like:
 	<Grid RowDefinations="[*, Auto]">
 		<TextBox x:Name="text" Grid.Row="0"
                    [{StyleSelector "TextBlock"}] = "{Style TextBox , FontSize = {DynamicResource "FontSize"}}"
-                   [{StyleSelector "TextBlock:Focused"} = "{Style TextBox, Foreground = Green}"
-                   [{StyleSelector "TextBlock:Invalid"} = "{Style TextBox, Foreground = Red}"
+                   [{StyleSelector "TextBlock:Focused"}] = "{Style TextBox, Foreground = Green}"
+                   [{StyleSelector "TextBlock:Invalid"}] = "{Style TextBox, Foreground = Red}"
                    Behaviors = "[{IsEmalBehavior}]"
                    ["FontSize"] = "double(14)"
                    ["Text"] = "Hello World"
