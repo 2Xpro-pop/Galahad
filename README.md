@@ -100,3 +100,15 @@ Below is an example demonstrating the use of @using in a Galahad document:
 The [key]="value" attribute in Galahad is used for defining resources and component properties. It is crucial to explicitly specify the data types for both key and value. This ensures clarity and precision in defining properties and their values, making the code more readable and maintainable. For instance, in the attribute ["FontSize"] = "double(14)", double explicitly states the data type for the value 14.
 
 Galahad is designed to provide a more compact and expressive representation of structures that in XAML might require significantly more space. This approach allows developers to more quickly and easily create complex user interfaces, leveraging the power and flexibility of the Galahad language.
+
+### CollectionExpression
+
+Galahad introduces the CollectionExpression feature, a powerful tool for handling collections in a more streamlined and intuitive way. This expression simplifies the representation and manipulation of IEnumerable properties within your UI components.
+
+- Simplified Syntax: Unlike traditional approaches that require verbose and explicit collection definitions, CollectionExpression allows for a concise and clear declaration of collection items. For example, [Item1, Item2, ...] directly enumerates the elements of the collection.
+
+- Enhanced Readability: This approach significantly enhances the readability of the markup, making it easier to understand and maintain the structure of collections within your user interface.
+
+- Flexibility and Power: CollectionExpression is not just about simplifying syntax; it provides a flexible and powerful way to define complex collections, supporting a range of types and scenarios.
+
+Incorporating CollectionExpression into Galahad exemplifies the language's commitment to efficiency and user-friendly design, further distinguishing it from other markup languages like XAML.
