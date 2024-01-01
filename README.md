@@ -3,13 +3,14 @@ Galahad is an extensible markup language inspired by XAML.
 
 ## Galahad vs XAML
 
-| | Galahad | XAML |
-| | --- | --- |
-| **Syntax** | Galahad is a more compact and expressive representation of structures that in XAML might require significantly more space. | XAML is a more verbose representation of structures that in Galahad might require significantly less space. |
-| **ResourceDictionary** | Galahad uses the attribute [key]="value" for defining resources. | XAML employs ResourceDictionary with Resources property, where resources are defined with a Key and value, e.g., <Style x:Key="MyStyle">...</Style>. This comprehensive method can be more verbose and complex than Galahad's streamlined syntax. |
-| **Namespace attached property** | Galahad supports namepace attached properties, when you use the alias for the namespace. | XAML not support namespace attached properties. |
-| **Complex DynamicResource** | Galahad supports complex DynamicResource,which contains FallbackValue, Converter and ConverterParameters properties.  | Xaml DynamicResource only reference to key.|
-| **Binding to IObservable** | Galahad supports binding to IObservable. | XAML not support binding to IObservable. |
+| Feature                      | Galahad                                                                                                     | XAML                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Syntax**                   | Galahad is a more compact and expressive representation of structures that in XAML might require significantly more space. | XAML is a more verbose representation of structures that in Galahad might require significantly less space.                                                |
+| **ResourceDictionary**       | Galahad uses the attribute [key]="value" for defining resources.                                           | XAML employs ResourceDictionary with Resources property, where resources are defined with a Key and value, e.g., `<Style x:Key="MyStyle">...</Style>`.    |
+| **Namespace attached property** | Galahad supports namespace attached properties, when you use the alias for the namespace.                | XAML does not support namespace attached properties.                                                                                                      |
+| **Complex DynamicResource**  | Galahad supports complex DynamicResource, which contains FallbackValue, Converter, and ConverterParameters properties. | XAML DynamicResource only references a key.                                                                                                               |
+| **Binding to IObservable**   | Galahad supports binding to IObservable.                                                                   | XAML does not support binding to IObservable.                                                                                                              |
+
 
 
 ## Galahad syntax
